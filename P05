@@ -1,0 +1,90 @@
+print(" 1. Sumar\n","2. Producto\n","3. Dividir\n","4. Factorial\n","5.Tablas de Multiplicar\n","6.Cuadrado y cubo\n","7. Promedio\n","8. Maximo y Minimo")
+opcion=int(input("Seleccione la operacion a realizar: "))
+
+if opcion == 1:
+    print("Usted seleciono la suma")
+    def suma_numeros():
+        n = int(input("Ingrese la cantidad de números a sumar: "))
+        suma = sum(float(input(f"Ingrese el número {i + 1}: ")) for i in range(n))
+        print(f"La suma de los {n} números es: {suma}")
+    suma_numeros()
+    
+elif opcion == 2:
+    print("Usted seleciono el producto de un numero")
+    from functools import reduce
+    def producto_numeros():
+        n = int(input("Ingrese la cantidad de números a multiplicar: "))
+        producto = reduce(lambda x, y: x * float(input(f"Ingrese el número {y + 1}: ")), range(n), 1)
+        print(f"El producto de los {n} números es: {producto}")
+    producto_numeros()
+
+elif opcion == 3:
+    print("Usted seleciono la division")
+    num1=float(input("Ingrese el primer numero a dividir: "))
+    num2=float(input("Ingrese el segundo numero a dividir: "))
+    r=float(num1/num2)
+    print("La division de los numeros es: ",r)
+
+elif opcion == 4:
+    print("Usted seleciono la factorial")
+    def factorial(n):
+        if n == 0 or n == 1:
+            return 1
+        else:
+            return n * factorial(n - 1)
+    def calcular_factorial():
+        n = int(input("Ingrese un número para calcular su factorial: "))
+        resultado = factorial(n)
+        print(f"El factorial de {n} es: {resultado}")
+    calcular_factorial()
+
+elif opcion == 5:
+    print("Usted seleciono tablas de multiplicar")
+    def imprimir_tabla_multiplicar():
+        numero_tabla = int(input("Ingrese el número de tabla que desee (1 al 10): "))
+        if 1 <= numero_tabla <= 10:
+            print(f"\nTabla de multiplicar del {numero_tabla}:\n")
+            for i in range(1, 11):
+                resultado = numero_tabla * i
+                print(f"{numero_tabla} x {i} = {resultado}")
+        else:
+            print("Ingrese un número entre 1 y 10.")
+    imprimir_tabla_multiplicar()
+
+elif opcion == 6:
+    numero=int(input("Ingrese un numero: "))
+    print("El numero al cuadrado es: ",numero*numero)
+    cubo = numero ** 3
+    print(f"El numero al cubo es:",cubo)
+
+elif opcion == 7:
+    numeros = []
+    while True:
+        numero = float(input("Ingrese un número e ingrese -1 para finalizar: "))
+        if numero == -1:
+            break
+        numeros.append(numero)
+    if numeros:
+        suma = sum(numeros)
+        promedio = suma / len(numeros)
+        print(f"El promedio de los números ingresados es: {promedio}")
+    else:
+        print("No se ingresaron números para calcular el promedio.")
+
+elif opcion == 8:
+    n = int(input("Ingrese la cantidad de números enteros que desea introducir: "))
+    if n <= 0:
+        print("La cantidad de números debe ser mayor que cero.")
+    else:
+        numeros = []
+        for i in range(n):
+            numero = int(input(f"Ingrese el número {i + 1}: "))
+            numeros.append(numero)
+        if numeros:
+            maximo = max(numeros)
+            minimo = min(numeros)
+            print(f"\nMáximo: {maximo}")
+            print(f"Mínimo: {minimo}")
+            print(f"Total de valores introducidos: {len(numeros)}")
+        else:
+            print("No se introdujeron números.")
